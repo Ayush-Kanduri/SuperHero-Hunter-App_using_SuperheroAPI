@@ -1,0 +1,247 @@
+header {
+	position: relative;
+	z-index: 2;
+}
+header video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.8;
+}
+.navbar {
+	z-index: 10;
+	position: relative;
+}
+.form {
+	width: 40%;
+	height: 100%;
+	padding: 2% 2%;
+}
+.form input,
+.form input:focus {
+	background: transparent;
+	outline: none;
+	border: 1px solid var(--color-quaternary); /* quaternary */
+	box-shadow: none;
+	color: var(--color-quaternary); /* quaternary */
+	font-family: "Poppins", sans-serif;
+	padding: 10px;
+}
+.search-btn {
+	background-color: var(--color-secondary); /* secondary */
+	color: var(--color-quaternary); /* quaternary */
+	border: none;
+	border-radius: 0.5rem;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	font-family: "Poppins", sans-serif;
+	transition: 0.2s ease-in;
+	box-shadow: none;
+	outline: none;
+}
+.search-btn:focus {
+	outline: none;
+	box-shadow: none;
+}
+.superhero-showcase {
+	background: var(--color-primary); /* primary */
+	display: flex;
+	position: relative;
+	min-height: 100vh;
+	padding: 0;
+	margin: 0;
+	z-index: 10;
+}
+.superhero-showcase .img {
+	transition: 1s;
+	flex-grow: 2;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+}
+.superhero-showcase:hover .img {
+	opacity: 0.1;
+}
+.superhero-showcase .img:hover {
+	opacity: 1;
+	flex-grow: 5;
+}
+.superhero-showcase .img:nth-child(1) {
+	background-image: url("../images/spiderman.jpg");
+	background-position: center;
+	background-position-y: -350px;
+	background-position-x: -1500px;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+.superhero-showcase .img:nth-child(2) {
+	background-image: url("../images/superman.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
+.superhero-showcase .img:nth-child(3) {
+	background-image: url("../images/ironman.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+.superhero-card {
+	background: var(--color-primary); /* primary */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	min-height: 100vh;
+	padding: 0;
+	margin: 0;
+	width: 100vw;
+}
+.superhero-card .card {
+	margin-top: 7rem;
+	display: flex;
+	height: 400px;
+	position: relative;
+	/* margin: 200px 0px 0px 50px; */
+	background: linear-gradient(
+		135deg,
+		var(--color-secondary),
+		var(--color-tertiary)
+	);
+	width: 650px;
+	align-items: center;
+	border-radius: 20px;
+	justify-content: flex-start;
+	box-shadow: 0px 3px 20px 3px var(--color-tertiary);
+}
+.superhero-card .card:last-child {
+	margin-bottom: 5rem;
+}
+.superhero-card .card img {
+	position: absolute;
+	right: 50%;
+	bottom: 0%;
+	transition: 0.5s;
+	transform: translateX(50%);
+	height: 350px;
+}
+.superhero-card .card:hover img {
+	height: 600px;
+	right: 80%;
+}
+.superhero-card .card .description {
+	position: absolute;
+	transition: 0.5s;
+	width: 50%;
+	right: 20%;
+	top: 20%;
+	opacity: 0;
+	padding: 20px 20px 20px 40px;
+	visibility: hidden;
+}
+.superhero-card .card .strange {
+	top: 10%;
+}
+.card:hover .description {
+	visibility: visible;
+	right: 0;
+	opacity: 1;
+	color: var(--color-quaternary); /* quaternary */
+}
+.card .description h3 {
+	text-transform: uppercase;
+	color: var(--color-quaternary); /* quaternary */
+	line-height: 1em;
+	font-size: 2.5em;
+}
+.superhero-flight {
+	position: relative;
+	height: 100vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 0;
+	margin: 0;
+	width: 100vw;
+	min-width: 100vw;
+	perspective: 10px;
+}
+.superhero-flight .wrapper {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	z-index: -1;
+}
+.superhero-flight::-webkit-scrollbar {
+	display: none;
+	overflow: hidden;
+}
+.superhero-flight .wrapper .background {
+	transform: translateZ(-10px) scale(2);
+}
+.superhero-flight .wrapper .foreground {
+	height: 400px;
+	width: 400px;
+	transform: translateZ(-5px) scale(1.5);
+}
+.superhero-flight .wrapper img {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
+	z-index: -1;
+}
+footer {
+	background: var(--color-primary); /* primary */
+	color: var(--color-quaternary); /* quaternary */
+	padding: 2% 2%;
+	/* font-size: 1.2rem; */
+	text-align: center;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: relative;
+	z-index: 2;
+}
+footer h1 {
+	word-spacing: 0.3rem;
+	z-index: 10;
+	position: relative;
+}
+footer strong,
+footer b {
+	color: var(--color-secondary); /* secondary */
+}
+footer .links a {
+	color: var(--color-quaternary); /* quaternary */
+	text-decoration: none;
+	transition: 0.2s ease-in;
+}
+footer .links a:hover {
+	color: var(--color-tertiary); /* tertiary */
+}
+footer .links {
+	margin-top: 3rem;
+	z-index: 10;
+	position: relative;
+}
+footer video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.8;
+}
