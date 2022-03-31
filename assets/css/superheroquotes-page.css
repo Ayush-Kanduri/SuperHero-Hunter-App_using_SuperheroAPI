@@ -1,0 +1,47 @@
+h3.quotes {
+	font-size: 1.5em;
+	margin-bottom: 5em;
+	color: var(--color-primary); /* primary */
+	text-transform: capitalize;
+	margin-top: -15px;
+	font-family: var(--font-redhat);
+	background-color: var(--color-secondary);
+	padding: 1rem;
+	border-radius: 7px;
+	font-weight: bold;
+	word-spacing: 0.08rem;
+}
+.first-card {
+	margin-top: -60px;
+}
+.card {
+	width: 50%;
+	border: none;
+	background-color: var(--color-tertiary);
+}
+.card-header {
+	background-color: var(--color-secondary);
+	color: var(--color-primary);
+	font-family: var(--font-redhat);
+	font-size: 1.1em;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+.card-body {
+	background-color: var(--color-tertiary);
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+}
+.card-body p {
+	color: var(--color-quaternary);
+	font-family: var(--font-redhat);
+	text-transform: capitalize;
+	font-weight: 600;
+	font-size: 0.8em;
+	color: rgb(230, 179, 179);
+}
+cite {
+	font-size: 0.9em;
+	color: rgb(223, 96, 96);
+	font-weight: 600;
+}
