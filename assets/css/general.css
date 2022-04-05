@@ -46,3 +46,6 @@ p,
 a {
 	font-family: var(--font-redhat);
 }
+.hide {
+	display: none;
+}

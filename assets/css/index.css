@@ -16,6 +16,9 @@ header video {
 	z-index: 10;
 	position: relative;
 }
+.nav-link{
+	font-weight: 500;
+}
 .form {
 	width: 40%;
 	height: 100%;
