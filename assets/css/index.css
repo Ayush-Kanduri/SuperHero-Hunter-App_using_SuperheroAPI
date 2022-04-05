@@ -17,12 +17,12 @@ header video {
 	position: relative;
 }
 .form {
-	width: 50%;
+	width: 40%;
 	height: 100%;
 	padding: 2% 2%;
 }
 .search-box {
-	width: 70%;
+	width: 75%;
 }
 .search-box ul {
 	box-shadow: 0px 1px 5px 3px rgba(255, 255, 255, 0.3);
@@ -35,15 +35,15 @@ header video {
 	overflow-y: auto;
 	max-height: 190px;
 	width: 100%;
-	display: none;
+	display: none; /*To Be Changed*/
 }
 .search-box ul::-webkit-scrollbar {
 	display: none;
 	overflow: hidden;
 }
 .search-box ul li {
-	opacity: 0;
-	pointer-events: none;
+	opacity: 0; /*To Be Changed*/
+	pointer-events: none; /*To Be Changed*/
 	list-style: none;
 	padding: 10px 12px;
 	width: 100%;
@@ -299,4 +299,7 @@ footer video {
 	height: 100%;
 	object-fit: cover;
 	opacity: 0.8;
+}
+.template {
+	display: none;
 }
