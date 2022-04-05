@@ -9,6 +9,7 @@ header video {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	-o-object-fit: cover;
 	opacity: 0.8;
 }
 .navbar {
@@ -16,19 +17,73 @@ header video {
 	position: relative;
 }
 .form {
-	width: 40%;
+	width: 50%;
 	height: 100%;
 	padding: 2% 2%;
+}
+.search-box {
+	width: 70%;
+}
+.search-box ul {
+	box-shadow: 0px 1px 5px 3px rgba(255, 255, 255, 0.3);
+	background-color: var(--color-quaternary);
+	border-radius: 5px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border: none;
+	padding: 8px;
+	overflow-y: auto;
+	max-height: 190px;
+	width: 100%;
+	display: none;
+}
+.search-box ul::-webkit-scrollbar {
+	display: none;
+	overflow: hidden;
+}
+.search-box ul li {
+	opacity: 0;
+	pointer-events: none;
+	list-style: none;
+	padding: 10px 12px;
+	width: 100%;
+	cursor: pointer;
+	border-radius: 4px;
+}
+.search-box ul li img {
+	width: 20px;
+	height: 20px;
+	border-radius: 5px;
+	margin-right: 15px;
+	object-fit: cover;
+	-o-object-fit: cover;
+	object-position: center;
+	-o-object-position: center;
+}
+.search-box ul li span {
+	font-family: var(--font-poppins);
+	text-transform: capitalize;
+}
+.search-box ul li .fa-heart:hover {
+	color: var(--color-secondary);
+	cursor: pointer;
+}
+.search-box ul li:hover {
+	background-color: #efefef;
 }
 .form input,
 .form input:focus {
 	background: transparent;
 	outline: none;
 	border: 1px solid var(--color-quaternary); /* quaternary */
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-radius: 0px;
 	box-shadow: none;
 	color: var(--color-quaternary); /* quaternary */
 	font-family: "Poppins", sans-serif;
-	padding: 10px;
+	padding: 8px;
 }
 .search-btn {
 	background-color: var(--color-secondary); /* secondary */
