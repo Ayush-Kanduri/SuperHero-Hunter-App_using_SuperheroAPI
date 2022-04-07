@@ -240,7 +240,8 @@ let superHeroApp = (() => {
 		document.addEventListener("click", handleClick);
 		//Input Event Listener
 		document.addEventListener("input", handleInput);
-		document.addEventListener("scroll", x);
+		//Scroll Event Listener
+		document.addEventListener("scroll", spiderWeb);
 		//Runs on every Window Load/Reload
 		window.onload = () => {
 			//Runs the videoPlay function
