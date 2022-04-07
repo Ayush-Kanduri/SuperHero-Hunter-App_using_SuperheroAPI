@@ -38,11 +38,20 @@ let superHeroApp = (() => {
 		}
 	};
 	//----------------------------------------------------------------
+	//Function: Fetches all the Superheroes//
+	const fetchSuperhero = async (value) => {
+		//Fetching the Superheroes from the Superhero API
+		const url = `https://superheroapi.com/api/125001886776752/search/${value}`;
+		const response = await fetch(url);
+		const data = await response.json();
+		const superheroList = data.results;
+		console.log(superheroList);
+	};
+	//----------------------------------------------------------------
 	//Function: Handles the Click Events//
 	const handleClick = (event) => {
 		//Fetch the clicked element
 		const target = event.target;
-		console.log(target);
 		//If the clicked element is a Wrapper Container (Left/Right of Nav Links)
 		if (target.id === "wrapper") {
 			//Toggles the video on and off
@@ -57,10 +66,42 @@ let superHeroApp = (() => {
 		}
 	};
 	//----------------------------------------------------------------
+	/*Debounce is a mechanism which forces a Function/API-Call to wait 
+	a certain amount of time before running again. This is used to 
+	prevent the API-Call from being called multiple times.*/
+
+	//Function: Debouncing mechanism for the API Calls//
+	const debounce = (callback, delay = 250) => {
+		let timeoutID;
+		//Returns a function
+		return (...value) => {
+			//If there is a previous timeoutID then clear it, so that if we stop typing then only it registers the input as the final word after the delay & displays it.
+			clearTimeout(timeoutID);
+			//Set the timeoutID along with running the callback with a delay
+			timeoutID = setTimeout(() => {
+				callback(...value);
+			}, delay);
+		};
+	};
+	//----------------------------------------------------------------
+	//Function: It is used to invoke debounce() & receives a function in return//
+	const search = debounce((value) => {
+		fetchSuperhero(value);
+	}, 250);
+	//----------------------------------------------------------------
+	//Function: Handles the Click Events//
+	const handleInput = (event) => {
+		//Value of the input field as we type
+		const value = event.target.value;
+		search(value);
+	};
+	//----------------------------------------------------------------
 	//Function: Initializes the Superhero Hunter App//
 	const initializeApp = () => {
 		//Click Event Delegation
 		document.addEventListener("click", handleClick);
+		//Input Event Listener
+		document.addEventListener("input", handleInput);
 		//Runs on every Window Load/Reload
 		window.onload = () => {
 			//Runs the videoPlay function
