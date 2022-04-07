@@ -1,15 +1,38 @@
+//----------------------------------------------------------------
 //Revealing Module Pattern using IIFE Module Design Pattern//
 //----------------------------------------------------------------
 let superHeroApp = (() => {
 	//Variable Declarations//
-	const videos = document.getElementsByTagName("video");
+	const videos = document.getElementsByClassName("headerVideo");
+	const footerVideo = document.getElementsByClassName("footerVideo")[0];
 	const template = document.querySelector(".template ul li");
 	const suggestionBox = document.getElementsByClassName("autocomplete-box")[0];
 	const input = document.getElementsByTagName("input")[0];
 	const UL = document.querySelector(".search-box ul");
+	const footerRect = document.querySelector("footer").getBoundingClientRect();
+	const height = Math.max(
+		document.body.scrollHeight,
+		document.body.offsetHeight,
+		document.body.clientHeight
+	);
 	let i = 0;
 	let flag = "not found";
 	let superheroes = [];
+	//----------------------------------------------------------------
+	//Function: Plays the Spider-Web Video in the Background in the Footer//
+	const spiderWeb = () => {
+		if (window.scrollY + 300 >= Math.floor(height - footerRect.height)) {
+			//On Clicking the background, video plays
+			document.onclick = () => {
+				footerVideo.play();
+			};
+			//On Double Clicking the background, video stops
+			document.ondblclick = () => {
+				footerVideo.currentTime = 0;
+				footerVideo.pause();
+			};
+		}
+	};
 	//----------------------------------------------------------------
 	//Function: Plays the Superhero Intro Videos in the Background//
 	const videoPlay = () => {
@@ -197,6 +220,7 @@ let superHeroApp = (() => {
 	//----------------------------------------------------------------
 	//Function: It is used to invoke debounce() & receives a function in return//
 	const search = debounce((value) => {
+		//Calls the fetchSuperheroes() function
 		fetchSuperhero(value);
 	}, 200);
 	//----------------------------------------------------------------
@@ -216,10 +240,13 @@ let superHeroApp = (() => {
 		document.addEventListener("click", handleClick);
 		//Input Event Listener
 		document.addEventListener("input", handleInput);
+		document.addEventListener("scroll", x);
 		//Runs on every Window Load/Reload
 		window.onload = () => {
 			//Runs the videoPlay function
 			videoPlay();
+			//Runs the spiderWeb function
+			spiderWeb();
 		};
 	};
 	//----------------------------------------------------------------
