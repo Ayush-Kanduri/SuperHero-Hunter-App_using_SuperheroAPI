@@ -16,7 +16,7 @@ header video {
 	z-index: 10;
 	position: relative;
 }
-.nav-link{
+.nav-link {
 	font-weight: 500;
 }
 .form {
@@ -36,17 +36,16 @@ header video {
 	border: none;
 	padding: 8px;
 	overflow-y: auto;
-	max-height: 190px;
+	max-height: 200px;
 	width: 100%;
-	display: none; /*To Be Changed*/
+	visibility: hidden;
+	z-index: 50;
 }
 .search-box ul::-webkit-scrollbar {
 	display: none;
 	overflow: hidden;
 }
 .search-box ul li {
-	opacity: 0; /*To Be Changed*/
-	pointer-events: none; /*To Be Changed*/
 	list-style: none;
 	padding: 10px 12px;
 	width: 100%;

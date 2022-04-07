@@ -73,6 +73,7 @@
 						</ul>
 					</div>
 					<form
+						id="form"
 						class="d-flex flex-row align-items-start justify-content-evenly form mt-0"
 					>
 						<div class="search-box">
@@ -81,8 +82,20 @@
 								type="search"
 								placeholder="Search"
 								aria-label="Search"
+								id="search-input"
+								autocomplete="off"
 							/>
-							<ul class="autocomplete-box"></ul>
+							<ul class="autocomplete-box">
+								<!-- <li
+									class="d-flex justify-content-between align-items-center"
+								>
+									<div>
+										<img src="./assets/images/search.png" alt="" />
+										<span></span>
+									</div>
+									<i class="fa-solid fa-heart"></i>
+								</li> -->
+							</ul>
 						</div>
 						<button class="btn search-btn" type="submit">Search</button>
 					</form>
@@ -137,10 +150,14 @@
 		</footer>
 		<div class="template">
 			<ul>
-				<li class="d-flex justify-content-between align-items-center">
+				<li class="d-flex justify-content-between align-items-center list">
 					<div>
-						<img src="./assets/images/search.png" alt="Search Icon" />
-						<span>Superman</span>
+						<img
+							src="./assets/images/search.png"
+							alt=""
+							onerror="this.onerror=null; this.src='./assets/images/search.png'"
+						/>
+						<span></span>
 					</div>
 					<i class="fa-solid fa-heart"></i>
 				</li>
