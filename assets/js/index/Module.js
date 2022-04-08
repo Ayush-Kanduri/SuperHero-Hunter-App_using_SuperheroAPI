@@ -234,7 +234,7 @@ let superHeroApp = (() => {
 				return;
 			}
 		});
-		//If the clicked element is the Search Button
+		// If the clicked element is the Search Button
 		if (target.id === "search-button") {
 			const val = target.previousElementSibling.children[0].value;
 			if (val.length > 0) {
@@ -242,6 +242,7 @@ let superHeroApp = (() => {
 				localStorage.setItem("superhero", val);
 				//Redirect to the superhero page
 				window.location.href = "./superhero-page.html";
+				return;
 			}
 			return;
 		}

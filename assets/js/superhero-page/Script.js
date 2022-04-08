@@ -4,7 +4,9 @@
 //Variable Declarations//
 const searchResultTitle = document.querySelector("#search-result-title");
 const searchResult = document.querySelector("#search-result");
-const template = document.querySelector("[data-superhero-template]");
+const template1 = document.querySelector("[data-superhero-template]");
+const template2 = document.querySelector("[data-nothing-template]");
+const template3 = document.querySelector("[data-superheroes-template]");
 //----------------------------------------------------------------
 //Function: To perform multiple Tasks & Actions//
 const actions = (() => {
@@ -21,11 +23,33 @@ const fetchSearchedHero = (async () => {
 		const url = `https://superheroapi.com/api/125001886776752/search/${value}`;
 		const response = await fetch(url);
 		const data = await response.json();
+
+		searchResult.querySelectorAll("*").forEach((child) => child.remove());
+
+		if (data.response === "error") {
+			console.log("Error: " + data.error);
+			const superhero = template2.content.cloneNode(true).children[0];
+			searchResult.appendChild(superhero);
+			return;
+		}
+
 		const superheroList = data.results;
-		if (superheroList.length === 0) {
-			console.log("No Superhero Found");
-		} else if (superheroList.length === 1) {
-			const superhero = template.content.cloneNode(true).children[0];
+		console.log(superheroList);
+
+		if (
+			superheroList.length === 0 ||
+			superheroList === undefined ||
+			superheroList === null ||
+			superheroList === "null" ||
+			superheroList === "undefined"
+		) {
+			const superhero = template2.content.cloneNode(true).children[0];
+			searchResult.appendChild(superhero);
+			return;
+		}
+
+		if (superheroList.length === 1) {
+			const superhero = template1.content.cloneNode(true).children[0];
 			const name = superhero.querySelector("#name");
 			const image = superhero.querySelector("#image img");
 			const progressBar = superhero.querySelectorAll(".progress-bar");
@@ -89,10 +113,11 @@ const fetchSearchedHero = (async () => {
 
 			console.log("One Superhero Found", superheroList[0].work);
 			searchResult.appendChild(superhero);
+			return;
 		} else {
 			console.log("Multiple Superheroes Found", superheroList);
 		}
 	} catch (error) {
-		alert("Error in fetching the Searched Super Hero !!!");
+		console.log("Error in fetching the Searched Super Hero !!!");
 	}
 })();
