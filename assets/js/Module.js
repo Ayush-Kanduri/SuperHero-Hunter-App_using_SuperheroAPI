@@ -293,8 +293,6 @@ let superHeroApp = (() => {
 		window.onload = () => {
 			//Runs the videoPlay function
 			videoPlay();
-			//Removes the previous search value from the localStorage
-			localStorage.removeItem("superhero");
 		};
 	};
 	//----------------------------------------------------------------
