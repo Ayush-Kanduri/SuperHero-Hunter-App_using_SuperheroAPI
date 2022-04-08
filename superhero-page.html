@@ -61,11 +61,306 @@
 						</ul>
 					</div>
 					<h3 id="superhero-display">Super Hero</h3>
-					<h3 id="search-result-title"></h3>
-					<div
-						id="search-result"
-						class="wrapper container-fluid d-flex justify-content-center align-items-center"
-					></div>
+					<h3 id="search-result-title" class="mb-5"></h3>
+					<div id="search-result" class="wrapper container-fluid">
+						<template data-superhero-template>
+							<div
+								class="wrapper container-fluid d-flex justify-content-start align-items-start single-card p-2"
+							>
+								<div id="image">
+									<img src="" alt="" />
+								</div>
+								<div
+									id="info"
+									class="ms-5 d-flex flex-column justify-content-start align-items-start"
+								>
+									<h1 id="name" class="text-capitalize fw-bolder"></h1>
+									<hr />
+									<section
+										class="mt-3 mb-3 power-stats d-flex flex-column container-fluid"
+									>
+										<h4 class="mb-4 text-capitalize">Power Stats</h4>
+										<span
+											class="mb-2 text-black fw-bold text-capitalize"
+											>Combat</span
+										>
+										<div
+											class="progress mb-3"
+											style="background: transparent; height: 20px"
+										>
+											<div
+												class="progress-bar fw-bolder"
+												role="progressbar"
+												style="
+													width: 50%;
+													background: #ffc107;
+													color: black;
+													border-top-right-radius: 5px;
+													border-bottom-right-radius: 5px;
+												"
+												aria-valuenow="25"
+												aria-valuemin="0"
+												aria-valuemax="100"
+											>
+												25%
+											</div>
+										</div>
+										<span
+											class="mb-2 text-black fw-bold text-capitalize"
+											>Durability</span
+										>
+										<div
+											class="progress mb-3"
+											style="background: transparent; height: 20px"
+										>
+											<div
+												class="progress-bar fw-bolder"
+												role="progressbar"
+												style="
+													width: 50%;
+													background: #ffc107;
+													color: black;
+													border-top-right-radius: 5px;
+													border-bottom-right-radius: 5px;
+												"
+												aria-valuenow="25"
+												aria-valuemin="0"
+												aria-valuemax="100"
+											>
+												25%
+											</div>
+										</div>
+										<span
+											class="mb-2 text-black fw-bold text-capitalize"
+											>Intelligence</span
+										>
+										<div
+											class="progress mb-3"
+											style="background: transparent; height: 20px"
+										>
+											<div
+												class="progress-bar fw-bolder"
+												role="progressbar"
+												style="
+													width: 50%;
+													background: #ffc107;
+													color: black;
+													border-top-right-radius: 5px;
+													border-bottom-right-radius: 5px;
+												"
+												aria-valuenow="25"
+												aria-valuemin="0"
+												aria-valuemax="100"
+											>
+												25%
+											</div>
+										</div>
+										<span
+											class="mb-2 text-black fw-bold text-capitalize"
+											>Power</span
+										>
+										<div
+											class="progress mb-3"
+											style="background: transparent; height: 20px"
+										>
+											<div
+												class="progress-bar fw-bolder"
+												role="progressbar"
+												style="
+													width: 50%;
+													background: #ffc107;
+													color: black;
+													border-top-right-radius: 5px;
+													border-bottom-right-radius: 5px;
+												"
+												aria-valuenow="25"
+												aria-valuemin="0"
+												aria-valuemax="100"
+											>
+												25%
+											</div>
+										</div>
+										<span
+											class="mb-2 text-black fw-bold text-capitalize"
+											>Speed</span
+										>
+										<div
+											class="progress mb-3"
+											style="background: transparent; height: 20px"
+										>
+											<div
+												class="progress-bar fw-bolder"
+												role="progressbar"
+												style="
+													width: 50%;
+													background: #ffc107;
+													color: black;
+													border-top-right-radius: 5px;
+													border-bottom-right-radius: 5px;
+												"
+												aria-valuenow="25"
+												aria-valuemin="0"
+												aria-valuemax="100"
+											>
+												25%
+											</div>
+										</div>
+										<span
+											class="mb-2 text-black fw-bold text-capitalize"
+											>Strength</span
+										>
+										<div
+											class="progress mb-3"
+											style="background: transparent; height: 20px"
+										>
+											<div
+												class="progress-bar fw-bolder"
+												role="progressbar"
+												style="
+													width: 50%;
+													background: #ffc107;
+													color: black;
+													border-top-right-radius: 5px;
+													border-bottom-right-radius: 5px;
+												"
+												aria-valuenow="25"
+												aria-valuemin="0"
+												aria-valuemax="100"
+											>
+												25%
+											</div>
+										</div>
+									</section>
+									<hr />
+									<section
+										class="biography mt-3 d-flex flex-column container-fluid"
+									>
+										<h4 class="mb-4 text-capitalize">Biography</h4>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>alignment:&ensp;</span
+											>
+										</p>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>alter-egos:&ensp;</span
+											>
+										</p>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>full-name:&ensp;</span
+											>
+										</p>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>place-of-birth:&ensp;</span
+											>
+										</p>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>publisher:&ensp;</span
+											>
+										</p>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>first-appearance:&ensp;</span
+											>
+										</p>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>aliases:&ensp;</span
+											>
+										</p>
+									</section>
+									<hr />
+									<section
+										class="appearance mt-3 d-flex flex-column container-fluid"
+									>
+										<h4 class="mb-4 text-capitalize">Appearance</h4>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>gender:&ensp;</span
+											>
+										</p>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>race:&ensp;</span
+											>
+										</p>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>height:&ensp;</span
+											>
+										</p>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>weight:&ensp;</span
+											>
+										</p>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>eye-color:&ensp;</span
+											>
+										</p>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>hair-color:&ensp;</span
+											>
+										</p>
+									</section>
+									<hr />
+									<section
+										class="work mt-3 d-flex flex-column container-fluid"
+									>
+										<h4 class="mb-4 text-capitalize">Connections</h4>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>group-affiliation:&ensp;</span
+											>
+										</p>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>relatives:&ensp;</span
+											>
+										</p>
+									</section>
+									<hr />
+									<section
+										class="connections mt-3 d-flex flex-column container-fluid"
+									>
+										<h4 class="mb-4 text-capitalize">Work</h4>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>occupation:&ensp;</span
+											>
+										</p>
+										<p class="text-white fw-normal text-capitalize">
+											<span
+												class="text-black fw-bolder text-capitalize"
+												>base:&ensp;</span
+											>
+										</p>
+									</section>
+								</div>
+							</div>
+						</template>
+					</div>
 				</div>
 			</nav>
 		</header>
