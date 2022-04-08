@@ -1,15 +1,15 @@
 h3.favourites {
-	font-size: 1.5em;
 	margin-bottom: 5em;
-	color: var(--color-primary); /* primary */
 	text-transform: capitalize;
 	margin-top: -15px;
-	font-family: var(--font-redhat);
 	background-color: var(--color-secondary);
-	padding: 1rem;
+	padding: 0.8rem;
 	border-radius: 7px;
 	font-weight: bold;
+	color: var(--color-primary);
 	word-spacing: 0.08rem;
+	letter-spacing: 0.005rem;
+	font-family: var(--font-poppins);
 }
 .card {
 	border-color: var(--color-tertiary); /* tertiary */

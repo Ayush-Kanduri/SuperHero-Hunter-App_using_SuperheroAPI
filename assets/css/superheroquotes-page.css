@@ -1,15 +1,15 @@
 h3.quotes {
-	font-size: 1.5em;
-	margin-bottom: 5em;
-	color: var(--color-primary); /* primary */
+	margin-bottom: 4.5em;
 	text-transform: capitalize;
 	margin-top: -15px;
-	font-family: var(--font-redhat);
 	background-color: var(--color-secondary);
-	padding: 1rem;
+	padding: 0.8rem;
 	border-radius: 7px;
 	font-weight: bold;
+	color: var(--color-primary);
 	word-spacing: 0.08rem;
+	letter-spacing: 0.005rem;
+	font-family: var(--font-poppins);
 }
 .first-card {
 	margin-top: -60px;
@@ -22,7 +22,7 @@ h3.quotes {
 .card-header {
 	background-color: var(--color-secondary);
 	color: var(--color-primary);
-	font-family: var(--font-redhat);
+	font-family: var(--font-sansita);
 	font-size: 1.1em;
 	font-weight: bold;
 	text-transform: capitalize;
@@ -36,12 +36,11 @@ h3.quotes {
 	color: var(--color-quaternary);
 	font-family: var(--font-redhat);
 	text-transform: capitalize;
-	font-weight: 600;
+	font-weight: 500;
 	font-size: 0.8em;
-	color: rgb(230, 179, 179);
 }
 cite {
 	font-size: 0.9em;
-	color: rgb(223, 96, 96);
+	color: var(--color-primary);
 	font-weight: 600;
 }

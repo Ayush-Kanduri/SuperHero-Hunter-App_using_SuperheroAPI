@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="./assets/css/general.css" />
 		<link rel="stylesheet" href="./assets/css/header.css" />
 		<link rel="stylesheet" href="./assets/css/media-query.css" />
+		<script defer src="./assets/js/superhero-page/Script.js"></script>
 	</head>
 	<body>
 		<header class="container-fluid favourites-header">
@@ -59,37 +60,12 @@
 							</li>
 						</ul>
 					</div>
-					<h3 class="callforhelp">Call Your Superhero For Help</h3>
-					<div class="card text-center p-4">
-						<div class="card-body">
-							<h5 class="card-title">Find Your Super Hero</h5>
-							<div class="mb-4 mt-4">
-								<label
-									for="exampleFormControlTextarea1"
-									class="form-label card-text mb-3"
-									>What's the Problem ?</label
-								>
-								<textarea
-									class="form-control"
-									id="exampleFormControlTextarea1"
-									rows="5"
-								></textarea>
-							</div>
-							<a href="#" class="btn">Find Now</a>
-						</div>
-						<!-- <div class="wrapper">
-							<div class="loading-superhero">
-								Finding Your Super Hero
-							</div>
-						</div> -->
-						<!-- <div class="success">
-							<img
-								src="./assets/images/tick.png"
-								alt="Superhero found"
-							/>
-							<h2>Super Hero Assigned</h2>
-						</div> -->
-					</div>
+					<h3 id="superhero-display">Super Hero</h3>
+					<h3 id="search-result-title"></h3>
+					<div
+						id="search-result"
+						class="wrapper container-fluid d-flex justify-content-center align-items-center"
+					></div>
 				</div>
 			</nav>
 		</header>

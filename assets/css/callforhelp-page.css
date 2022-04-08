@@ -1,19 +1,19 @@
 h3.callforhelp {
-	font-size: 1.5em;
 	margin-bottom: 5em;
-	color: var(--color-primary); /* secondary */
 	text-transform: capitalize;
 	margin-top: -15px;
-	font-family: var(--font-redhat);
 	background-color: var(--color-secondary);
-	padding: 1rem;
+	padding: 0.8rem;
 	border-radius: 7px;
 	font-weight: bold;
+	color: var(--color-primary);
 	word-spacing: 0.08rem;
+	letter-spacing: 0.005rem;
+	font-family: var(--font-poppins);
 }
 .card {
 	width: 50%;
-	background-color: var(--color-tertiary); /* tertiary */
+	background-color: rgb(197, 54, 54);
 	border-radius: 10px;
 	margin-top: -60px;
 	position: relative;
@@ -53,9 +53,12 @@ textarea {
 .btn:hover,
 .btn:focus {
 	outline: none;
-	color: var(--color-primary);
-	background-color: var(--color-secondary);
+	color: var(--color-quaternary);
+	background-color: var(--color-primary);
 	font-weight: 600;
+	letter-spacing: 0.15rem;
+	word-spacing: 0.2rem;
+	padding: 10px 20px
 }
 
 .btn:focus {
