@@ -23,11 +23,11 @@ let superHeroApp = (() => {
 	const spiderWeb = () => {
 		if (window.scrollY + 300 >= Math.floor(height - footerRect.height)) {
 			//On Clicking the background, video plays
-			document.onclick = () => {
+			footerVideo.parentElement.onclick = () => {
 				footerVideo.play();
 			};
 			//On Double Clicking the background, video stops
-			document.ondblclick = () => {
+			footerVideo.parentElement.ondblclick = () => {
 				footerVideo.currentTime = 0;
 				footerVideo.pause();
 			};
@@ -174,30 +174,77 @@ let superHeroApp = (() => {
 		}
 		//If the clicked element is a Suggestion from the Suggestion Box
 		li.forEach((li) => {
+			//If list item is clicked
 			if (target === li) {
-				console.log(target.textContent.trim());
+				//Store the superhero name in local storage
+				localStorage.setItem("superhero", target.textContent.trim());
+				//Redirect to the superhero page
+				window.location.href = "./superhero-page.html";
 				return;
 			}
+			//If list item div is clicked
 			if (target === li.children[0]) {
-				console.log(target.children[1].textContent.trim());
-				return;
-			}
-			if (target === li.children[0].children[1]) {
-				console.log(target.textContent.trim());
-				return;
-			}
-			if (target === li.children[0].children[0]) {
-				console.log(target.nextElementSibling.textContent.trim());
-				return;
-			}
-			if (target === li.children[1]) {
-				console.log(
-					target.previousElementSibling.children[1].textContent.trim() +
-						" is added to favourites"
+				//Store the superhero name in local storage
+				localStorage.setItem(
+					"superhero",
+					target.children[1].textContent.trim()
 				);
+				//Redirect to the superhero page
+				window.location.href = "./superhero-page.html";
+				return;
+			}
+			//If list item span is clicked
+			if (target === li.children[0].children[1]) {
+				//Store the superhero name in local storage
+				localStorage.setItem("superhero", target.textContent.trim());
+				//Redirect to the superhero page
+				window.location.href = "./superhero-page.html";
+				return;
+			}
+			//If list item image is clicked
+			if (target === li.children[0].children[0]) {
+				//Store the superhero name in local storage
+				localStorage.setItem(
+					"superhero",
+					target.nextElementSibling.textContent.trim()
+				);
+				//Redirect to the superhero page
+				window.location.href = "./superhero-page.html";
+				return;
+			}
+			//If Heart Icon is clicked
+			if (target === li.children[1]) {
+				let arr = [];
+				//If Favourites exist in localStorage
+				if ("favourites" in localStorage) {
+					//Convert the string to array
+					arr = JSON.parse(localStorage.getItem("favourites"));
+					console.log("not empty");
+				}
+				//If Favourites don't exist in localStorage
+				else {
+					console.log("empty");
+				}
+				//Push the favourite superhero to the array
+				arr.push(
+					target.previousElementSibling.children[1].textContent.trim()
+				);
+				//Convert the array to string and store it in localStorage
+				localStorage.setItem("favourites", JSON.stringify(arr));
 				return;
 			}
 		});
+		//If the clicked element is the Search Button
+		if (target.id === "search-button") {
+			const val = target.previousElementSibling.children[0].value;
+			if (val.length > 0) {
+				//Store the superhero name in localStorage
+				localStorage.setItem("superhero", val);
+				//Redirect to the superhero page
+				window.location.href = "./superhero-page.html";
+			}
+			return;
+		}
 	};
 	//----------------------------------------------------------------
 	/*Debounce is a mechanism which forces a Function/API-Call to wait 
@@ -246,8 +293,8 @@ let superHeroApp = (() => {
 		window.onload = () => {
 			//Runs the videoPlay function
 			videoPlay();
-			//Runs the spiderWeb function
-			spiderWeb();
+			//Removes the previous search value from the localStorage
+			localStorage.removeItem("superhero");
 		};
 	};
 	//----------------------------------------------------------------
