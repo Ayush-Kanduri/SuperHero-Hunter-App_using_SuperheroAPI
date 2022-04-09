@@ -51,9 +51,24 @@
 			></video> -->
 			<nav class="navbar navbar-expand container-fluid">
 				<div
-					class="wrapper container-fluid d-flex flex-column justify-content-center align-items-center"
+					class="wrapper container-fluid d-flex flex-column justify-content-center align-items-center position-relative"
 					id="wrapper"
 				>
+					<div
+						class="toast position-absolute"
+						role="alert"
+						aria-live="assertive"
+						aria-atomic="true"
+					>
+						<div class="toast-header">
+							<strong class="me-auto text-capitalize"></strong>
+							<small>Just Now</small>
+						</div>
+						<div class="toast-body text-capitalize">
+							<b></b>
+						</div>
+					</div>
+
 					<a class="navbar-brand navbar-expand-lg" href="./index.html">
 						<h1 class="logo">
 							<img
@@ -164,7 +179,11 @@
 		</footer>
 		<div class="template">
 			<ul>
-				<li class="d-flex justify-content-between align-items-center list">
+				<li
+					class="d-flex justify-content-between align-items-center list"
+					data-id=""
+					data-image-url=""
+				>
 					<div>
 						<img
 							src="./assets/images/search.png"
@@ -173,7 +192,7 @@
 						/>
 						<span></span>
 					</div>
-					<i class="fa-solid fa-heart"></i>
+					<i class="fa-solid fa-heart fav-btn"></i>
 				</li>
 			</ul>
 		</div>

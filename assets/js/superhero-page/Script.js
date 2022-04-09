@@ -16,6 +16,29 @@ const actions = (() => {
 	)}'`;
 })();
 //----------------------------------------------------------------
+//Function: Toggle the Favourites Heart Icon//
+const heartToggle = (favouriteBtn, name) => {
+	let arr = [];
+	let item = name.trim().toLowerCase();
+	//If Favourites exist in localStorage
+	if ("favourites" in localStorage) {
+		//Convert the string to array
+		arr = JSON.parse(localStorage.getItem("favourites"));
+		//If the superhero is already in the favourites
+		if (arr.includes(item)) {
+			favouriteBtn.style.color = "red";
+		}
+		//If the superhero is not in the favourites
+		else {
+			favouriteBtn.style.color = "black";
+		}
+	}
+	//If Favourites don't exist in localStorage
+	else {
+		favouriteBtn.style.color = "black";
+	}
+};
+//----------------------------------------------------------------
 //Function: Fetches the Searched Superhero//
 const fetchSearchedHero = (async () => {
 	try {
@@ -34,7 +57,7 @@ const fetchSearchedHero = (async () => {
 		}
 
 		const superheroList = data.results;
-		console.log(superheroList);
+		// console.log(superheroList);
 
 		if (
 			superheroList.length === 0 ||
@@ -50,16 +73,98 @@ const fetchSearchedHero = (async () => {
 
 		if (superheroList.length === 1) {
 			const superhero = template1.content.cloneNode(true).children[0];
+			const toast = superhero.querySelector(".toast");
 			const name = superhero.querySelector("#name");
 			const image = superhero.querySelector("#image img");
+			const favouriteBtn = superhero.querySelector("#info .fav-btn");
 			const progressBar = superhero.querySelectorAll(".progress-bar");
 			const sections = superhero.querySelectorAll("section");
 			let i = 0;
 
 			name.textContent = superheroList[0].name;
 			image.src = superheroList[0].image.url;
+			favouriteBtn.setAttribute("data-id", superheroList[0].id);
+			favouriteBtn.setAttribute(
+				"data-image-url",
+				superheroList[0].image.url
+			);
+
+			heartToggle(favouriteBtn, superheroList[0].name);
+
+			favouriteBtn.addEventListener("click", (event) => {
+				let arr = [];
+				let images = [];
+				let item = superheroList[0].name.trim().toLowerCase();
+				let url = favouriteBtn.getAttribute("data-image-url");
+				toast.children[0].children[0].textContent = item;
+
+				//If Favourites exist in localStorage
+				if ("favourites" in localStorage) {
+					//Convert the string to array
+					arr = JSON.parse(localStorage.getItem("favourites"));
+					//Convert the string to array
+					images = JSON.parse(localStorage.getItem("images"));
+
+					//If the superhero is already in the favourites
+					if (arr.includes(item)) {
+						//Remove the superhero from the favourites
+						arr = arr.filter((i) => i !== item);
+						//Remove the superhero image URL from the favourites
+						images = images.filter((obj) => obj.name !== item);
+						//Change color of the heart icon
+						favouriteBtn.style.color = "black";
+						//Change toast message
+						toast.children[1].children[0].textContent =
+							"Removed from Favourites !!!";
+					}
+					//If the superhero is not in the favourites
+					else {
+						//Push the favourite superhero to the array
+						arr.push(item);
+						//Push the favourite superhero image URL to the array
+						images.push({ name: item, image: url });
+						//Change color of the heart icon
+						favouriteBtn.style.color = "red";
+						//Change toast message
+						toast.children[1].children[0].textContent =
+							"Added to Favourites !!!";
+					}
+				}
+				//If Favourites don't exist in localStorage
+				else {
+					//Push the favourite superhero to the array
+					arr.push(item);
+					//Push the favourite superhero image URL to the array
+					images.push({ name: item, image: url });
+					//Change color of the heart icon
+					favouriteBtn.style.color = "red";
+					//Change toast message
+					toast.children[1].children[0].textContent =
+						"Added to Favourites !!!";
+				}
+
+				//Convert the array to string and store it in localStorage
+				localStorage.setItem("favourites", JSON.stringify(arr));
+				//Convert the array to string and store it in localStorage
+				localStorage.setItem("images", JSON.stringify(images));
+				//Show the toast
+				toast.classList.add("show", "fadeLeft");
+				//Hide the toast after 3 seconds
+				setTimeout(() => {
+					toast.classList.remove("show", "fadeLeft");
+				}, 3000);
+			});
+
 			for (let key in superheroList[0].powerstats) {
-				const val = superheroList[0].powerstats[key];
+				let val = superheroList[0].powerstats[key];
+				if (
+					val === "null" ||
+					val === undefined ||
+					val === "undefined" ||
+					val === null
+				) {
+					val = "NA";
+				}
 				progressBar[i].style.width = `${val}%`;
 				progressBar[i].setAttribute("aria-valuenow", `${val}`);
 				progressBar[i].textContent = `${val}%`;
@@ -111,13 +216,13 @@ const fetchSearchedHero = (async () => {
 				}
 			}
 
-			console.log("One Superhero Found", superheroList[0].work);
+			// console.log("One Superhero Found", superheroList[0]);
 			searchResult.appendChild(superhero);
 			return;
 		} else {
 			console.log("Multiple Superheroes Found", superheroList);
 		}
 	} catch (error) {
-		console.log("Error in fetching the Searched Super Hero !!!");
+		console.log("Error in fetching the Searched Super Hero !!!", error);
 	}
 })();

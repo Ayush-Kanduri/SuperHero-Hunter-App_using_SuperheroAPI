@@ -15,12 +15,17 @@ h3.favourites {
 	border-color: var(--color-tertiary); /* tertiary */
 	background-color: var(--color-tertiary); /* tertiary */
 	overflow: hidden;
+	cursor: pointer;
 }
 .card img {
 	overflow: hidden;
 	z-index: 0;
 	transition: 0.5s;
 	width: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
+	-o-object-position: center;
+	object-position: center;
 }
 .card img:hover {
 	transform: scale(1.2);
@@ -43,5 +48,9 @@ h3.favourites {
 	background-color: var(--color-primary);
 }
 .btn:hover {
+	color: var(--color-quaternary);
+}
+#search-result-title {
+	word-spacing: 0.2rem;
 	color: var(--color-quaternary);
 }

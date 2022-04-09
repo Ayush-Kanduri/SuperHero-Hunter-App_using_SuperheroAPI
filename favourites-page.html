@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="./assets/css/general.css" />
 		<link rel="stylesheet" href="./assets/css/header.css" />
 		<link rel="stylesheet" href="./assets/css/media-query.css" />
+		<script defer src="./assets/js/favourites-page/Script.js"></script>
 	</head>
 	<body>
 		<header class="container-fluid favourites-header">
@@ -60,29 +61,31 @@
 						</ul>
 					</div>
 					<h3 class="favourites">Favourite Super Heroes</h3>
-
-					<div class="row row-cols-1 row-cols-md-3 g-4">
-						<!-- <div class="col">
-							<div class="card">
-								<img
-									src="./assets/images/ironman.jpg"
-									class="card-img-top"
-									alt=""
-								/>
-								<div class="card-body">
-									<h5 class="card-title">Card title</h5>
-									<p class="card-text">
-										This is a longer card with supporting text below
-										as a natural lead-in to additional content. This
-										content is a little bit longer.
-									</p>
-									<a href="" class="btn">Remove</a>
-								</div>
-							</div>
-						</div> -->
-					</div>
+					<div class="result row row-cols-1 row-cols-md-3 g-4"></div>
 				</div>
 			</nav>
 		</header>
+		<template data-template>
+			<div class="col">
+				<div class="card">
+					<img
+						src="./assets/images/ironman.jpg"
+						class="card-img-top"
+						alt=""
+						data-image-url=""
+						onerror="this.onerror=null; this.src='./assets/images/search.png'"
+					/>
+					<div class="card-body">
+						<h5 class="card-title" data-name="">Card title</h5>
+						<a href="" class="btn">Remove</a>
+					</div>
+				</div>
+			</div>
+		</template>
+		<template data-empty
+			><h3 id="search-result-title" class="container-fluid wrapper">
+				No Favourite Superheroes
+			</h3></template
+		>
 	</body>
 </html>

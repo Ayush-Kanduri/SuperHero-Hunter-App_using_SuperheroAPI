@@ -43,6 +43,17 @@
 	color: var(--color-primary);
 	font-family: var(--font-poppins);
 }
+.single-card #info .fav-btn {
+	font-size: 2.5rem;
+	left: 100%;
+	top: 0.5%;
+	transform: translateX(-100%);
+	color: var(--color-primary);
+	cursor: pointer;
+}
+.single-card #info .fav-btn:hover {
+	color: var(--color-secondary);
+}
 h4 {
 	font-family: var(--font-poppins);
 	color: var(--color-quaternary);
@@ -54,4 +65,25 @@ h4 {
 }
 [data-superhero-template] {
 	display: none;
+}
+.toast {
+	top: 5%;
+	left: 100%;
+	transform: translateX(-100%);
+}
+.show {
+	display: initial;
+}
+.fadeLeft {
+	animation: fadeLeft 1.2s;
+}
+@keyframes fadeLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(0%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(-100%);
+	}
 }

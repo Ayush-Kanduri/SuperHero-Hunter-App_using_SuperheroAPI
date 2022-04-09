@@ -16,6 +16,27 @@ header video {
 	z-index: 10;
 	position: relative;
 }
+.toast {
+	top: 50%;
+	left: 100%;
+	transform: translateX(-100%);
+}
+.show {
+	display: initial;
+}
+.fadeLeft {
+	animation: fadeLeft 1.2s;
+}
+@keyframes fadeLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(0%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(-100%);
+	}
+}
 .nav-link {
 	font-weight: 500;
 }

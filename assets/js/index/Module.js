@@ -19,6 +19,29 @@ let superHeroApp = (() => {
 	let flag = "not found";
 	let superheroes = [];
 	//----------------------------------------------------------------
+	//Function: Toggle the Favourites Heart Icon in the Suggestions//
+	const heartToggle = (favouriteBtn, name) => {
+		let arr = [];
+		let item = name.trim().toLowerCase();
+		//If Favourites exist in localStorage
+		if ("favourites" in localStorage) {
+			//Convert the string to array
+			arr = JSON.parse(localStorage.getItem("favourites"));
+			//If the superhero is already in the favourites
+			if (arr.includes(item)) {
+				favouriteBtn.style.color = "red";
+			}
+			//If the superhero is not in the favourites
+			else {
+				favouriteBtn.style.color = "black";
+			}
+		}
+		//If Favourites don't exist in localStorage
+		else {
+			favouriteBtn.style.color = "black";
+		}
+	};
+	//----------------------------------------------------------------
 	//Function: Plays the Spider-Web Video in the Background in the Footer//
 	const spiderWeb = () => {
 		if (window.scrollY + 300 >= Math.floor(height - footerRect.height)) {
@@ -96,10 +119,18 @@ let superHeroApp = (() => {
 					const suggestion = template.cloneNode(true);
 					const name = suggestion.querySelector("div span");
 					const image = suggestion.querySelector("div img");
+					const favouriteBtn = suggestion.querySelector(".fav-btn");
 					//Setting the name and image of the superhero
 					if (superhero.name.toLowerCase().includes(value.toLowerCase())) {
 						name.textContent = superhero.name;
 						image.src = superhero.image.url;
+						suggestion.setAttribute("data-id", superhero.id);
+						suggestion.setAttribute(
+							"data-image-url",
+							superhero.image.url
+						);
+						//Setting the favourite button color
+						heartToggle(favouriteBtn, superhero.name);
 					}
 					//If the content is empty then return null
 					if (
@@ -143,6 +174,7 @@ let superHeroApp = (() => {
 		//Fetch the clicked element
 		const target = event.target;
 		const li = document.querySelectorAll(".search-box ul li");
+		const toast = document.querySelector(".toast");
 
 		//If the clicked element is a Wrapper Container (Left/Right of Nav Links)
 		if (target.id === "wrapper") {
@@ -177,7 +209,10 @@ let superHeroApp = (() => {
 			//If list item is clicked
 			if (target === li) {
 				//Store the superhero name in local storage
-				localStorage.setItem("superhero", target.textContent.trim());
+				localStorage.setItem(
+					"superhero",
+					target.textContent.trim().toLowerCase()
+				);
 				//Redirect to the superhero page
 				window.location.href = "./superhero-page.html";
 				return;
@@ -187,7 +222,7 @@ let superHeroApp = (() => {
 				//Store the superhero name in local storage
 				localStorage.setItem(
 					"superhero",
-					target.children[1].textContent.trim()
+					target.children[1].textContent.trim().toLowerCase()
 				);
 				//Redirect to the superhero page
 				window.location.href = "./superhero-page.html";
@@ -196,7 +231,10 @@ let superHeroApp = (() => {
 			//If list item span is clicked
 			if (target === li.children[0].children[1]) {
 				//Store the superhero name in local storage
-				localStorage.setItem("superhero", target.textContent.trim());
+				localStorage.setItem(
+					"superhero",
+					target.textContent.trim().toLowerCase()
+				);
 				//Redirect to the superhero page
 				window.location.href = "./superhero-page.html";
 				return;
@@ -206,7 +244,7 @@ let superHeroApp = (() => {
 				//Store the superhero name in local storage
 				localStorage.setItem(
 					"superhero",
-					target.nextElementSibling.textContent.trim()
+					target.nextElementSibling.textContent.trim().toLowerCase()
 				);
 				//Redirect to the superhero page
 				window.location.href = "./superhero-page.html";
@@ -215,31 +253,79 @@ let superHeroApp = (() => {
 			//If Heart Icon is clicked
 			if (target === li.children[1]) {
 				let arr = [];
+				let images = [];
+				let item = target.previousElementSibling.children[1].textContent
+					.trim()
+					.toLowerCase()
+					.toLowerCase();
+				let url = target.parentElement.getAttribute("data-image-url");
+				toast.children[0].children[0].textContent = item;
+
 				//If Favourites exist in localStorage
 				if ("favourites" in localStorage) {
 					//Convert the string to array
 					arr = JSON.parse(localStorage.getItem("favourites"));
-					console.log("not empty");
+					//Convert the string to array
+					images = JSON.parse(localStorage.getItem("images"));
+
+					//If the superhero is already in the favourites
+					if (arr.includes(item)) {
+						//Remove the superhero from the favourites
+						arr = arr.filter((i) => i !== item);
+						//Remove the superhero image URL from the favourites
+						images = images.filter((obj) => obj.name !== item);
+						//Change color of the heart icon
+						target.style.color = "black";
+						//Change toast message
+						toast.children[1].children[0].textContent =
+							"Removed from Favourites !!!";
+					}
+					//If the superhero is not in the favourites
+					else {
+						//Push the favourite superhero to the array
+						arr.push(item);
+						//Push the favourite superhero image URL to the array
+						images.push({ name: item, image: url });
+						//Change color of the heart icon
+						target.style.color = "red";
+						//Change toast message
+						toast.children[1].children[0].textContent =
+							"Added to Favourites !!!";
+					}
 				}
 				//If Favourites don't exist in localStorage
 				else {
-					console.log("empty");
+					//Push the favourite superhero to the array
+					arr.push(item);
+					//Push the favourite superhero image URL to the array
+					images.push({ name: item, image: url });
+					//Change color of the heart icon
+					target.style.color = "red";
+					//Change toast message
+					toast.children[1].children[0].textContent =
+						"Added to Favourites !!!";
 				}
-				//Push the favourite superhero to the array
-				arr.push(
-					target.previousElementSibling.children[1].textContent.trim()
-				);
+
 				//Convert the array to string and store it in localStorage
 				localStorage.setItem("favourites", JSON.stringify(arr));
+				//Convert the array to string and store it in localStorage
+				localStorage.setItem("images", JSON.stringify(images));
+				//Show the toast
+				toast.classList.add("show", "fadeLeft");
+				//Hide the toast after 3 seconds
+				setTimeout(() => {
+					toast.classList.remove("show", "fadeLeft");
+				}, 3000);
 				return;
 			}
 		});
 		// If the clicked element is the Search Button
 		if (target.id === "search-button") {
+			event.preventDefault();
 			const val = target.previousElementSibling.children[0].value;
 			if (val.length > 0) {
 				//Store the superhero name in localStorage
-				localStorage.setItem("superhero", val);
+				localStorage.setItem("superhero", val.toLowerCase());
 				//Redirect to the superhero page
 				window.location.href = "./superhero-page.html";
 				return;
