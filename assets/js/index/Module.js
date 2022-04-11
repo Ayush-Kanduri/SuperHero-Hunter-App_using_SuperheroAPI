@@ -1,7 +1,7 @@
 //----------------------------------------------------------------
 //Revealing Module Pattern using IIFE Module Design Pattern//
 //----------------------------------------------------------------
-let superHeroApp = (() => {
+const superHeroApp = (() => {
 	//Variable Declarations//
 	const videos = document.getElementsByClassName("headerVideo");
 	const footerVideo = document.getElementsByClassName("footerVideo")[0];
@@ -339,7 +339,7 @@ let superHeroApp = (() => {
 	prevent the API-Call from being called multiple times.*/
 
 	//Function: Debouncing mechanism for the API Calls//
-	const debounce = (callback, delay = 200) => {
+	const debounce = (callback, delay = 180) => {
 		let timeoutID;
 		//Returns a function
 		return (...value) => {
@@ -356,7 +356,7 @@ let superHeroApp = (() => {
 	const search = debounce((value) => {
 		//Calls the fetchSuperheroes() function
 		fetchSuperhero(value);
-	}, 200);
+	}, 180);
 	//----------------------------------------------------------------
 	//Function: Handles the Click Events//
 	const handleInput = (event) => {

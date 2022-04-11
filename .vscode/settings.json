@@ -6,6 +6,7 @@
 		"IIFE",
 		"initialise",
 		"powerstats",
-		"valuenow"
+		"valuenow",
+		"whitespaces"
 	]
 }
