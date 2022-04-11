@@ -369,6 +369,29 @@
 		<template data-nothing-template>
 			<h2 class="text-black fw-bolder text-center">No Superhero Found</h2>
 		</template>
-		<template data-superheroes-template></template>
+		<template data-superheroes-template>
+			<div
+				class="col"
+				data-biography=""
+				data-appearance=""
+				data-work=""
+				data-connections=""
+				data-powerstats=""
+				data-image-url=""
+				data-name=""
+			>
+				<div class="card">
+					<img
+						src="./assets/images/ironman.jpg"
+						class="card-img-top"
+						alt=""
+						onerror="this.onerror=null; this.src='./assets/images/search.png'"
+					/>
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+					</div>
+				</div>
+			</div>
+		</template>
 	</body>
 </html>
