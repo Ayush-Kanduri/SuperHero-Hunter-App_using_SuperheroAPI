@@ -120,7 +120,10 @@ const favouriteSuperheroPage = (() => {
 			//Set the Superhero Name (to Search for) in the Local Storage
 			localStorage.setItem("superhero", val);
 			//Redirect to the Superhero Page
-			window.location.href = "/superhero-page.html";
+
+			// window.location.href = "/superhero-page.html";
+			window.location.href =
+				"https://ayush-kanduri.github.io/SuperHero-Hunter-App_using_SuperheroAPI/superhero-page.html";
 		}
 	};
 	//----------------------------------------------------------------
