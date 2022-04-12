@@ -1,3 +1,4 @@
+/* -----------------------------Heading----------------------------- */
 #superhero-display {
 	margin-bottom: 2.5em;
 	color: var(--color-primary);
@@ -10,15 +11,25 @@
 	padding: 1rem;
 	border-radius: 7px;
 	font-weight: bold;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+/* -----------------------------Search Result Title----------------------------- */
 #search-result-title {
 	word-spacing: 0.2rem;
 	color: var(--color-quaternary);
 }
+/* -----------------------------Search Results----------------------------- */
 #search-result {
 	background-color: var(--color-tertiary);
 	border-radius: 7px;
 	padding: 5%;
+}
+/* -----------------------------Single Cards----------------------------- */
+.single-card {
+	width: 100%;
 }
 .single-card #image {
 	width: 50%;
@@ -54,6 +65,7 @@
 .single-card #info .fav-btn:hover {
 	color: var(--color-secondary);
 }
+/* -----------------------------Title----------------------------- */
 h4 {
 	font-family: var(--font-poppins);
 	color: var(--color-quaternary);
@@ -63,17 +75,22 @@ h4 {
 	width: max-content;
 	border-radius: 10px;
 }
+/* -----------------------------Data Superhero Template----------------------------- */
 [data-superhero-template] {
 	display: none;
 }
+/* -----------------------------Toast----------------------------- */
 .toast {
 	top: 5%;
 	left: 100%;
 	transform: translateX(-100%);
+	z-index: 100;
 }
+/* -----------------------------Show Class----------------------------- */
 .show {
 	display: initial;
 }
+/* -----------------------------FadeLeft Animation----------------------------- */
 .fadeLeft {
 	animation: fadeLeft 1.2s;
 }
@@ -87,6 +104,7 @@ h4 {
 		transform: translateX(-100%);
 	}
 }
+/* -----------------------------Cards----------------------------- */
 .card {
 	border-color: var(--color-primary);
 	background-color: var(--color-primary);

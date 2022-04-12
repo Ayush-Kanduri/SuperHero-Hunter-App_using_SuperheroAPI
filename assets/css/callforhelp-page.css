@@ -1,3 +1,4 @@
+/* -----------------------------Heading----------------------------- */
 h3.callforhelp {
 	margin-bottom: 5em;
 	text-transform: capitalize;
@@ -10,7 +11,12 @@ h3.callforhelp {
 	word-spacing: 0.08rem;
 	letter-spacing: 0.005rem;
 	font-family: var(--font-poppins);
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+/* -----------------------------Card----------------------------- */
 .card {
 	width: 50%;
 	background-color: rgb(197, 54, 54);
@@ -22,6 +28,7 @@ h3.callforhelp {
 textarea {
 	resize: none;
 }
+/* -----------------------------Form----------------------------- */
 #exampleFormControlTextarea1 {
 	font-size: 1rem;
 	width: 100%;
@@ -37,6 +44,7 @@ textarea {
 	border: 1px solid black;
 	box-shadow: none;
 }
+/* -----------------------------Title----------------------------- */
 .card-title {
 	font-size: 2em;
 	font-family: var(--font-sansita);
@@ -49,6 +57,7 @@ textarea {
 	color: var(--color-primary); /* primary */
 	font-weight: 600;
 }
+/* -----------------------------Button----------------------------- */
 .btn,
 .btn:hover,
 .btn:focus {
@@ -72,6 +81,7 @@ textarea {
 	justify-content: center;
 	align-items: center;
 }
+/* -----------------------------Loading Animation----------------------------- */
 .loading-superhero {
 	width: 200px;
 	height: 200px;
@@ -107,12 +117,14 @@ textarea {
 	border-radius: 50%;
 	animation: ripple 2s 1s linear infinite;
 }
+/* -----------------------------Ripple Animation----------------------------- */
 @keyframes ripple {
 	100% {
 		transform: scale(2);
 		opacity: 0;
 	}
 }
+/* -----------------------------Success Box Animation----------------------------- */
 .success {
 	animation: opacity 1s ease-in;
 }

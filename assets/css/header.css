@@ -1,3 +1,4 @@
+/* -----------------------------Header----------------------------- */
 header {
 	min-height: 100vh;
 	padding: 1% 1%;
@@ -26,12 +27,30 @@ header #logo-img {
 header .navbar a {
 	text-decoration: none;
 }
+/* -----------------------------Navbar----------------------------- */
 .navbar {
+	width: 100%;
+}
+.navbar-nav{
 	width: 100%;
 }
 .navbar .wrapper {
 	width: 100%;
 }
+.collapse {
+	width: 100%;
+}
+.collapse ul {
+	width: 100%;
+}
+.collapse li {
+	width: 100%;
+}
+.collapse li a {
+	width: 100%;
+	text-align: center;
+}
+/* -----------------------------Navbar Menu----------------------------- */
 .nav-link,
 .nav-link:visited,
 .nav-link:link,
@@ -46,6 +65,7 @@ header .navbar a {
 .nav-link:hover {
 	color: var(--color-secondary); /* secondary */
 }
+/* -----------------------------Animation Modal----------------------------- */
 #myModal {
 	display: none;
 }

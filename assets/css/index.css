@@ -1,7 +1,9 @@
+/* -----------------------------Header----------------------------- */
 header {
 	position: relative;
 	z-index: 2;
 }
+/* -----------------------------Video----------------------------- */
 header video {
 	position: absolute;
 	top: 0;
@@ -12,18 +14,23 @@ header video {
 	-o-object-fit: cover;
 	opacity: 0.8;
 }
+/* -----------------------------Navbar----------------------------- */
 .navbar {
 	z-index: 10;
 	position: relative;
 }
+/* -----------------------------Toast----------------------------- */
 .toast {
 	top: 50%;
 	left: 100%;
 	transform: translateX(-100%);
+	z-index: 100;
 }
+/* -----------------------------Show Class----------------------------- */
 .show {
 	display: initial;
 }
+/* -----------------------------FadeLeft Animation----------------------------- */
 .fadeLeft {
 	animation: fadeLeft 1.2s;
 }
@@ -37,14 +44,17 @@ header video {
 		transform: translateX(-100%);
 	}
 }
+/* -----------------------------Navbar Menu----------------------------- */
 .nav-link {
 	font-weight: 500;
 }
-.form {
+/* -----------------------------Search Form----------------------------- */
+#search-form {
 	width: 40%;
 	height: 100%;
 	padding: 2% 2%;
 }
+/* -----------------------------Auto Suggestions----------------------------- */
 .search-box {
 	width: 75%;
 }
@@ -94,8 +104,9 @@ header video {
 .search-box ul li:hover {
 	background-color: #efefef;
 }
-.form input,
-.form input:focus {
+/* -----------------------------Search Input----------------------------- */
+#search-form input,
+#search-form input:focus {
 	background: transparent;
 	outline: none;
 	border: 1px solid var(--color-quaternary); /* quaternary */
@@ -108,6 +119,7 @@ header video {
 	font-family: "Poppins", sans-serif;
 	padding: 8px;
 }
+/* -----------------------------Search Button----------------------------- */
 .search-btn {
 	background-color: var(--color-secondary); /* secondary */
 	color: var(--color-quaternary); /* quaternary */
@@ -124,6 +136,7 @@ header video {
 	outline: none;
 	box-shadow: none;
 }
+/* -----------------------------Superhero Showcase----------------------------- */
 .superhero-showcase {
 	background: var(--color-primary); /* primary */
 	display: flex;
@@ -167,6 +180,7 @@ header video {
 	background-attachment: fixed;
 	background-position: center;
 }
+/* -----------------------------Superhero Cards----------------------------- */
 .superhero-card {
 	background: var(--color-primary); /* primary */
 	display: flex;
@@ -236,48 +250,7 @@ header video {
 	line-height: 1em;
 	font-size: 2.5em;
 }
-.superhero-flight {
-	position: relative;
-	height: 100vh;
-	overflow-y: auto;
-	overflow-x: hidden;
-	padding: 0;
-	margin: 0;
-	width: 100vw;
-	min-width: 100vw;
-	perspective: 10px;
-}
-.superhero-flight .wrapper {
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 100%;
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	z-index: -1;
-}
-.superhero-flight::-webkit-scrollbar {
-	display: none;
-	overflow: hidden;
-}
-.superhero-flight .wrapper .background {
-	transform: translateZ(-10px) scale(2);
-}
-.superhero-flight .wrapper .foreground {
-	height: 400px;
-	width: 400px;
-	transform: translateZ(-5px) scale(1.5);
-}
-.superhero-flight .wrapper img {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	-o-object-fit: cover;
-	object-fit: cover;
-	z-index: -1;
-}
+/* -----------------------------Footer----------------------------- */
 footer {
 	background: var(--color-primary); /* primary */
 	color: var(--color-quaternary); /* quaternary */
@@ -323,6 +296,7 @@ footer video {
 	object-fit: cover;
 	opacity: 0.8;
 }
+/* -----------------------------Templates----------------------------- */
 .template {
 	display: none;
 }
